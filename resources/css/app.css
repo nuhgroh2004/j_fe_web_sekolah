@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+/* ── Google Font Import ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+
+    /* School Color Palette */
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-200: #bfdbfe;
+    --color-primary-300: #93c5fd;
+    --color-primary-400: #60a5fa;
+    --color-primary-500: #1e3a5f;
+    --color-primary-600: #1a3353;
+    --color-primary-700: #152a45;
+    --color-primary-800: #0f1f33;
+    --color-primary-900: #0a1628;
+
+    --color-accent-400: #f4c542;
+    --color-accent-500: #d4a017;
+    --color-accent-600: #b8860b;
+
+    --color-surface-50: #f8fafc;
+    --color-surface-100: #f1f5f9;
+    --color-surface-200: #e2e8f0;
+    --color-surface-800: #1e293b;
+    --color-surface-900: #0f172a;
+}
+
+/* ── Custom Utilities ── */
+
+/* Hero overlay */
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.88) 0%, rgba(10, 22, 40, 0.75) 100%);
+}
+
+/* Section separator */
+.section-divider {
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-600));
+}
+
+/* Card hover lift */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Animated counter */
+.counter-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Gallery image */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Navbar scroll state */
+.navbar-scrolled {
+    background: rgba(15, 23, 42, 0.97) !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA button shine effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+.btn-shine:hover::after {
+    left: 120%;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade-in animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
